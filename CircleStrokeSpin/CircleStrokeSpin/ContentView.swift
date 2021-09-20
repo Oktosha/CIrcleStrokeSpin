@@ -9,8 +9,16 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack {
+            HStack {
+                CircleStrokeSpin()
+                CircleStrokeSpin(isLoading: true, color: UIColor.cyan.cgColor, lineWidth: 10)
+            }.padding()
+            HStack {
+                CircleStrokeSpin(isLoading: false)
+                CircleStrokeSpin().frame(width: 20, height: 20)
+            }.padding()
+        }
     }
 }
 

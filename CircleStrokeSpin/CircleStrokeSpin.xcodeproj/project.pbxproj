@@ -11,6 +11,7 @@
 		232970E626F9001100343EFF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232970E526F9001100343EFF /* ContentView.swift */; };
 		232970E826F9001400343EFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 232970E726F9001400343EFF /* Assets.xcassets */; };
 		232970EB26F9001400343EFF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 232970EA26F9001400343EFF /* Preview Assets.xcassets */; };
+		232970F326F900FE00343EFF /* CircleStrokeSpin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232970F226F900FE00343EFF /* CircleStrokeSpin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		232970E726F9001400343EFF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		232970EA26F9001400343EFF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		232970EC26F9001400343EFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		232970F226F900FE00343EFF /* CircleStrokeSpin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleStrokeSpin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			children = (
 				232970E326F9001100343EFF /* CircleStrokeSpinApp.swift */,
 				232970E526F9001100343EFF /* ContentView.swift */,
+				232970F226F900FE00343EFF /* CircleStrokeSpin.swift */,
 				232970E726F9001400343EFF /* Assets.xcassets */,
 				232970EC26F9001400343EFF /* Info.plist */,
 				232970E926F9001400343EFF /* Preview Content */,
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				232970E626F9001100343EFF /* ContentView.swift in Sources */,
+				232970F326F900FE00343EFF /* CircleStrokeSpin.swift in Sources */,
 				232970E426F9001100343EFF /* CircleStrokeSpinApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
