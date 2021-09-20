@@ -34,6 +34,56 @@
 import UIKit
 import SwiftUI
 
+// The implementation is:
+// + simplify UIView from Vinh Nguyen
+// + wrap it into SwiftUI view using UIViewRepresentable
+// But there is a twist with passing the size
+
+
+// At the moment when updateUIView in UIViewRepresentable is called
+// the frame poperty doesn't contain the proper size, it's (0, 0)
+// So I pass the size via GeometryReader
+
+struct CircleStrokeSpin: View {
+    var isLoading = true
+    var color = UIColor.blue.cgColor
+    var lineWidth: CGFloat = 2
+    var body: some View {
+        return GeometryReader { geometry in
+            CircleStrokeSpinCore(isLoading: isLoading, size: geometry.size, color: color, lineWidth: lineWidth)
+        }
+    }
+}
+
+
+struct CircleStrokeSpinCore: UIViewRepresentable {
+    
+    var isLoading: Bool
+    var size: CGSize
+    var color: CGColor
+    var lineWidth: CGFloat
+    
+    typealias UIViewType = CircleStrokeSpinView
+
+    func makeUIView(context: Context) -> CircleStrokeSpinView {
+        return CircleStrokeSpinView()
+    }
+
+    func updateUIView(_ uiView: CircleStrokeSpinView, context: Context) {
+        
+        // I reset animation in every update. Hope this isn't called too often.
+        uiView.stopAnimating()
+        
+        uiView.size = size
+        uiView.lineWidth = lineWidth
+        uiView.color = color
+        
+        if (isLoading) {
+            uiView.startAnimating()
+        }
+    }
+}
+
 final class CircleStrokeSpinView : UIView {
     
     public var size: CGSize = CGSize(width: 0, height: 0)
@@ -127,43 +177,5 @@ final class CircleStrokeSpinView : UIView {
         layer.frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
 
         return layer
-    }
-}
-
-
-struct CircleStrokeSpinCore: UIViewRepresentable {
-    
-    var isLoading: Bool
-    var size: CGSize
-    var color: CGColor
-    var lineWidth: CGFloat
-    
-    typealias UIViewType = CircleStrokeSpinView
-
-    func makeUIView(context: Context) -> CircleStrokeSpinView {
-        return CircleStrokeSpinView()
-    }
-
-    func updateUIView(_ uiView: CircleStrokeSpinView, context: Context) {
-        uiView.stopAnimating()
-        
-        uiView.size = size
-        uiView.lineWidth = lineWidth
-        uiView.color = color
-        
-        if (isLoading) {
-            uiView.startAnimating()
-        }
-    }
-}
-
-struct CircleStrokeSpin: View {
-    var isLoading = true
-    var color = UIColor.blue.cgColor
-    var lineWidth: CGFloat = 2
-    var body: some View {
-        return GeometryReader { geometry in
-            CircleStrokeSpinCore(isLoading: isLoading, size: geometry.size, color: color, lineWidth: lineWidth)
-        }
     }
 }
